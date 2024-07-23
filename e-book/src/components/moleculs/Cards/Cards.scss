@@ -1,0 +1,40 @@
+.cards {
+   background-color: #fff;
+   box-sizing: border-box;
+   width: 15%;
+   min-height: 50vh;
+   max-height: 50vh;
+   display: flex;
+   flex-direction: column;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px 0 #00000033;
+   transition: 0.3s;
+   margin: 20px;
+   justify-content: space-between;
+
+   .img {
+      height: 30vh;
+   }
+
+   .title {
+      font-weight: bold;
+      margin-left: 10px;
+   }
+
+   .author {
+      color: grey;
+      margin-left: 10px;
+   }
+
+   .body {
+      margin: 10px 5px 10px;
+      font-size: 16px;
+      color: #353535;
+      max-height: 35px; /* Adjust this value as needed */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* Number of lines to show */
+      -webkit-box-orient: vertical;
+   }
+}

@@ -1,0 +1,34 @@
+.detail {
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   max-height: 100vh;
+   height: 100vh;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+
+   .detail-content {
+      height: 70vh;
+      width: 50%;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 #00000033;
+      transition: 0.3s;
+
+      .detail-image {
+         height: 40vh;
+         background-size: contain;
+      }
+
+      .detail-title {
+         font-weight: bold;
+         font-size: 30px;
+      }
+
+      .detail-author {
+         color: grey;
+      }
+   }
+}

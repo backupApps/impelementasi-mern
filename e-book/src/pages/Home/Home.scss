@@ -1,0 +1,19 @@
+.home {
+   box-sizing: border-box;
+   display: grid;
+
+   .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+
+      .content-cards {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         width: 80%;
+      }
+   }
+}
