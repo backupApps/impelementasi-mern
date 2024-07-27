@@ -11,8 +11,7 @@ export const Header = () => {
          <img className="header-logo" src={read} alt="book" />
          <h1 className="header-title">e-book</h1>
          <div className="header-wrapper">
-            <Button name="Sign up" onClick={() => navigate("/register")} />
-            <Button name="Sign in" onClick={() => navigate("/login")} />
+            <Button name="Logout" onClick={() => navigate("/login")} />
          </div>
       </div>
    );

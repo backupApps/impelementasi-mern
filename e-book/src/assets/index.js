@@ -1,7 +1,7 @@
 // image
 import Book from "./img/Book.jpg";
 import book from "./img/book.png";
-import read from "./img/read.gif";
+import read from "./icons/read.gif";
 import bgLogin from "./img/bg-login.jpg";
 import bgRegister from "./img/bg-register.jpg";
 
