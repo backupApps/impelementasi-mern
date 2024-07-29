@@ -1,16 +1,21 @@
+const { validation } = require("express-validator");
+const path = require("path");
+const fs = require("fs"); // file system for delete
 const BookApi = require("../models/bookAPI");
 
 // post
 exports.insertBookAPI = (req, res, next) => {
    // request user
-   const { title, body, author, publisher, publication_year, stock } = req.body;
+   const { title, body, author, publisher, date, stock } = req.body;
+   const image = req.file.path;
 
    const Submit = new BookApi({
       title,
+      image,
       body,
       author,
       publisher,
-      publication_year,
+      date,
       stock,
    });
 
@@ -29,7 +34,7 @@ exports.insertBookAPI = (req, res, next) => {
 };
 
 // get
-exports.showBookAPI = (req, res, next) => {
+exports.showBooksAPI = (req, res, next) => {
    BookApi.find()
       .countDocuments()
       .then((count) => {
@@ -47,3 +52,24 @@ exports.showBookAPI = (req, res, next) => {
          next(err);
       });
 };
+
+exports.showDetailsBook = (req, res, next) => {
+   const bookId = req.params.id;
+
+   BookApi.findById(bookId)
+      .then((book) => {
+         if (!book) {
+            const error = new Error("Book not found");
+            error.statusCode = 404;
+            throw error;
+         }
+         res.status(200).json({ message: "Book details fetched", book });
+      })
+      .catch((err) => {
+         err.statusCode = 500;
+      });
+   next();
+};
+
+// delete
+exports.deleteBookAPI = (req, res, next) => {};

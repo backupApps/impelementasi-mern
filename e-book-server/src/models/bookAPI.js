@@ -7,6 +7,10 @@ const BookAPI = new Schema(
          type: String,
          required: true,
       },
+      body: {
+         type: String,
+         required: true,
+      },
       publisher: {
          type: String,
          required: true,
@@ -15,12 +19,12 @@ const BookAPI = new Schema(
          type: String,
          required: true,
       },
-      // image: {
-      //    type: String,
-      //    required: true,
-      // },
-      publication_year: {
-         type: Number,
+      image: {
+         type: String,
+         required: true,
+      },
+      date: {
+         type: String,
          required: true,
       },
       stock: {
@@ -31,4 +35,4 @@ const BookAPI = new Schema(
    { timestamps: true }
 );
 
-module.exports = mongoose.model("Book", BookAPI, "book");
+module.exports = mongoose.model("BookAPI", BookAPI, "book");

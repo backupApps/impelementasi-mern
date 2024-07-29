@@ -8,6 +8,11 @@ const bookControllers = require("../controllers/bookAPI");
 router.post("/insert", bookControllers.insertBookAPI);
 
 // endpoint -> [GET] : /book/showbook
-router.get("/showbook", bookControllers.showBookAPI);
+router.get("/showbooks", bookControllers.showBooksAPI);
+
+// endpoint -> [GET] : /book/showdetailsbook
+router.get("/showdetailsbook/:id", bookControllers.showDetailsBook);
+
+//
 
 module.exports = router;
