@@ -4,22 +4,26 @@ import { Book } from "../../../assets";
 import { Button } from "../../atoms";
 import { useNavigate } from "react-router-dom";
 
-export const Cards = () => {
+export const Cards = (props) => {
    const navigate = useNavigate();
+   const { title, image, author, _id } = props;
    return (
-      <div className="cards">
-         <img className="img" src={Book} alt="book" />
-         <div>
-            <p className="title">card</p>
-            <p className="author">Author | Date</p>
+      <div className="container">
+         <div className="cards">
+            <img
+               className="img"
+               src={`http://localhost:4000/${image}`}
+               alt={title}
+            />
+            <div>
+               <p className="title">{title}</p>
+               <p className="author">{author ? author : "Unknown Author"}</p>
+            </div>
+            <Button
+               name="View Detail"
+               onClick={() => navigate(`/detail/${_id}`)}
+            />
          </div>
-         <p className="body">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-         </p>
-         <Button name="View Detail" onClick={() => navigate("/detail")} />
       </div>
    );
 };

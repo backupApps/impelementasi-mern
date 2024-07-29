@@ -1,28 +1,52 @@
-import React from "react";
-import { Footer, Header } from "../../components/moleculs";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Detail.scss";
-import { Link } from "../../components/atoms";
+import { Gap, Link } from "../../components/atoms";
 import { useNavigate } from "react-router-dom";
 import { Book } from "../../assets";
+import Axios from "axios";
 
 const Detail = () => {
    const navigate = useNavigate();
+   const { id } = useParams();
+   const [book, setBook] = useState();
+
+   useEffect(() => {
+      Axios.get(`http://localhost:4000/book/showdetailsbook/${id}`)
+         .then((response) => {
+            setBook(response.data.book);
+         })
+         .catch((err) => {
+            console.log("Error fetching book details", book);
+         });
+   }, [id]);
+
+   if (!book) {
+      return <div>Loading...</div>;
+   }
+
    return (
       <div className="detail">
-         <Header />
          <div className="detail-content">
-            <img className="detail-image" src={Book} alt="image" />
-            <p className="detail-title">Title</p>
-            <p className="detail-author">Author | Date</p>
-            <p className="detail-body">
-               Lorem Ipsum is simply dummy text of the printing and typesetting
-               industry. Lorem Ipsum has been the industry's standard dummy text
-               ever since the 1500s, when an unknown printer took a galley of
-               type and scrambled it to make a type specimen book.
-            </p>
+            <div>
+               <Link title="< Back" onClick={() => navigate("/")} />
+               <img
+                  className="detail-image"
+                  src={`http://localhost:4000/${book.image}`}
+                  alt={book.title}
+               />
+            </div>
+            <div className="detail-content-wrapper">
+               <Gap height={15} />
+               <p className="detail-title">{book.title}</p>
+               <p>Author: {book.author}</p>
+               <p>Publisher: {book.publisher}</p>
+               <p>Date: {book.date}</p>
+               <p>Stock: {book.stock}</p>
+               <p>Description:</p>
+               <p className="detail-body">{book.body}</p>
+            </div>
          </div>
-         <Link title="Back" onClick={() => navigate("/")} />
-         <Footer />
       </div>
    );
 };

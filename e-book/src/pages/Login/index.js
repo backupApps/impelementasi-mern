@@ -17,7 +17,7 @@ const Login = () => {
                <Gap height={10} />
                <Input name="Password" />
                <Gap height={20} />
-               <Button name="Submit" onClick={() => navigate("/home")} />
+               <Button name="Submit" onClick={() => navigate("/")} />
                <p>
                   Belum mempunyai akun?
                   <Link title="Sign up" onClick={() => navigate("/register")} />

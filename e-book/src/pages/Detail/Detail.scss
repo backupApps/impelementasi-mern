@@ -3,12 +3,13 @@
    display: flex;
    flex-direction: column;
    max-height: 100vh;
-   height: 100vh;
+   height: 100%;
    width: 100%;
    justify-content: space-between;
    align-items: center;
 
    .detail-content {
+      display: flex;
       height: 70vh;
       width: 50%;
       margin: 20px;
@@ -17,9 +18,12 @@
       box-shadow: 0 4px 8px 0 #00000033;
       transition: 0.3s;
 
+      .detail-content-wrapper {
+         margin: 0 10px;
+      }
+
       .detail-image {
          height: 40vh;
-         background-size: contain;
       }
 
       .detail-title {
@@ -27,8 +31,18 @@
          font-size: 30px;
       }
 
-      .detail-author {
-         color: grey;
+      .detail-body {
+         color: #353535;
+         max-height: 30vh;
+         text-align: justify;
+         font-size: 16px;
+         border-top: 1px solid #dddddd;
+         border-bottom: 1px solid #cccccc;
+         padding: 5px 0;
+         overflow: scroll;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         -webkit-box-orient: vertical;
       }
    }
 }

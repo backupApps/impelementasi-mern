@@ -19,7 +19,7 @@ const Register = () => {
                <Gap height={10} />
                <Input name="Password" />
                <Gap height={20} />
-               <Button name="Submit" onClick={() => navigate("/home")} />
+               <Button name="Submit" onClick={() => navigate("/")} />
                <p>
                   Sudah mempunyai akun?
                   <Link title="Sign in" onClick={() => navigate("/login")} />

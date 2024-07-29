@@ -2,18 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "../../pages/Login";
 import Register from "../../pages/Register";
-import { Create, Home } from "../../pages";
-import Detail from "../../pages/Detail";
+import MainApp from "../../pages/Main";
 
 const Routing = () => {
    return (
       <Router>
          <Routes>
-            <Route index path="/" element={<Home />} />
+            <Route path="/*" element={<MainApp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/detail" element={<Detail />} />
          </Routes>
       </Router>
    );
