@@ -1,6 +1,6 @@
 import React from "react";
 import "./Textarea.scss";
 
-export const Textarea = () => {
-   return <textarea className="textarea"></textarea>;
+export const Textarea = ({ ...rest }) => {
+   return <textarea className="textarea" {...rest}></textarea>;
 };

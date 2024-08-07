@@ -13,11 +13,11 @@ const Login = () => {
             <div className="form-login">
                <h1>LOGIN</h1>
                <Gap height={10} />
-               <Input name="Email / Username" />
+               <Input placeholder="Email / Username" />
                <Gap height={10} />
-               <Input name="Password" />
+               <Input placeholder="Password" />
                <Gap height={20} />
-               <Button name="Submit" onClick={() => navigate("/")} />
+               <Button title="Submit" onClick={() => navigate("/")} />
                <p>
                   Belum mempunyai akun?
                   <Link title="Sign up" onClick={() => navigate("/register")} />

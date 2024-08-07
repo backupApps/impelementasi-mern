@@ -1,10 +1,10 @@
 import React from "react";
 import "./Button.scss";
 
-export const Button = ({ name, ...rest }) => {
+export const Button = ({ title, ...rest }) => {
    return (
       <div className="button" {...rest}>
-         {name}
+         {title}
       </div>
    );
 };

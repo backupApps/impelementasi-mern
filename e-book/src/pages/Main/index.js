@@ -12,9 +12,9 @@ const MainApp = () => {
          <Header />
          <div className="main-content">
             <Routes>
-               <Route path="/" element={<Home />} />
-               <Route path="/create" element={<Create />} />
-               <Route path="/detail/:id" element={<Detail />} />
+               <Route exact path="/" element={<Home />} />
+               <Route path="/insert/:id?" element={<Create />} />
+               <Route path="/showdetailsbook/:id" element={<Detail />} />
             </Routes>
          </div>
          <Footer />

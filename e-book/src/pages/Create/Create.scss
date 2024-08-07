@@ -9,7 +9,6 @@
 
    .create-input {
       background-color: #fff;
-      // box-sizing: border-box;
       width: 40%;
       min-height: 50vh;
       display: flex;
@@ -24,24 +23,29 @@
          display: flex;
          justify-content: space-between;
          padding: 0 20px;
+         flex-wrap: wrap;
+
+         .create-input-column {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+         }
+
+         // .create-input-img {
+         //    display: flex;
+         //    flex-direction: column;
+         // }
+
+         .file-input {
+            width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+         }
       }
 
-      .create-input1 {
+      .input-description {
          display: flex;
          flex-direction: column;
-         width: 100%;
-      }
-
-      .create-input-img {
-         display: flex;
-         flex-direction: column;
-      }
-
-      .create-image {
-         height: 20vh;
-         width: 72%;
-         background-size: contain;
-         border-radius: 5px;
       }
    }
 }

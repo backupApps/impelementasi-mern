@@ -11,7 +11,7 @@ export const Header = () => {
          <img className="header-logo" src={read} alt="book" />
          <h1 className="header-title">e-book</h1>
          <div className="header-wrapper">
-            <Button name="Logout" onClick={() => navigate("/login")} />
+            <Button title="Logout" onClick={() => navigate("/login")} />
          </div>
       </div>
    );

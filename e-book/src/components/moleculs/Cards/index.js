@@ -1,6 +1,5 @@
 import React from "react";
 import "./Cards.scss";
-import { Book } from "../../../assets";
 import { Button } from "../../atoms";
 import { useNavigate } from "react-router-dom";
 
@@ -20,8 +19,8 @@ export const Cards = (props) => {
                <p className="author">{author ? author : "Unknown Author"}</p>
             </div>
             <Button
-               name="View Detail"
-               onClick={() => navigate(`/detail/${_id}`)}
+               title="View Detail"
+               onClick={() => navigate(`/showdetailsbook/${_id}`)}
             />
          </div>
       </div>

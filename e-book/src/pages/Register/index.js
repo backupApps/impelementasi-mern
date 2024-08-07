@@ -11,15 +11,15 @@ const Register = () => {
          <div className="form">
             <div className="form-login">
                <h1>REGISTER</h1>
-               <Input name="Name" />
+               <Input placeholder="Name" />
                <Gap height={10} />
-               <Input name="Username" />
+               <Input placeholder="Username" />
                <Gap height={10} />
-               <Input name="Email" />
+               <Input placeholder="Email" />
                <Gap height={10} />
-               <Input name="Password" />
+               <Input placeholder="Password" />
                <Gap height={20} />
-               <Button name="Submit" onClick={() => navigate("/")} />
+               <Button title="Submit" onClick={() => navigate("/")} />
                <p>
                   Sudah mempunyai akun?
                   <Link title="Sign in" onClick={() => navigate("/login")} />

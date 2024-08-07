@@ -28,7 +28,7 @@ const Home = () => {
       <div className="home">
          <div className="content">
             <h1>KUMPULAN BUKU MENARIK</h1>
-            <Button name="Create Book" onClick={() => navigate("/create")} />
+            <Button title="Create Book" onClick={() => navigate("/insert")} />
             <div className="content-cards">
                {books.length > 0 ? (
                   books.map((book) => (

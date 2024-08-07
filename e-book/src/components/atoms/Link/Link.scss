@@ -1,5 +1,10 @@
 .link {
    cursor: pointer;
-   text-decoration: underline;
    color: grey;
+   width: 30%;
+}
+
+.link:hover {
+   color: black;
+   text-decoration: underline;
 }
