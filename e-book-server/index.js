@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer"); // multipart/form-data (unggah file)
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const bookRoutes = require("./src/routes/bookAPI");
 
@@ -32,6 +33,12 @@ const filter = (req, file, callback) => {
    }
 };
 
+// middleware
+app.use(bodyParser.json()); // type JSON
+// app.use(express.urlencoded({ extended: true }));
+app.use("/images", express.static(path.join(__dirname, "images")));
+app.use(multer({ storage: storage, filter: filter }).single("image"));
+
 // cors
 const corsOption = {
    origin: "http://localhost:3000",
@@ -42,9 +49,6 @@ const corsOption = {
 // middleware
 app.use(cors(corsOption));
 app.use(express.json()); // parsing json
-app.use(express.urlencoded({ extended: true }));
-app.use("/images", express.static(path.join(__dirname, "images")));
-app.use(multer({ storage: storage, filter: filter }).single("image"));
 
 app.use((req, res, next) => {
    console.log(`Incoming request: ${req.method} ${req.url} `);
@@ -54,12 +58,16 @@ app.use((req, res, next) => {
 // endpoint
 app.use("/book", bookRoutes);
 
+app.use((error, req, res, next) => {
+   const status = error.errorStatus || 500;
+   const message = error.message;
+   const data = error.data;
+   res.status(status).json({ message: message, data: data });
+});
+
 // connect mongodb
 mongoose
-   .connect("mongodb://localhost:27017/agoengbani", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-   })
+   .connect("mongodb://localhost:27017/agoengbani")
    .then(
       app.listen(port, () => {
          console.log(`Server is running on http://localhost:${port}`);
