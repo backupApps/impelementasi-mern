@@ -11,7 +11,7 @@ import {
 } from "../../components/atoms";
 import "./Create.scss";
 import UploadImg from "../../components/atoms/UploadImg";
-import { Book } from "../../assets";
+import Swal from "sweetalert2";
 
 const Create = () => {
    const navigate = useNavigate();
@@ -82,7 +82,12 @@ const Create = () => {
             },
          })
             .then((response) => {
-               alert("Update Data Successfully");
+               Swal.fire({
+                  title: "Edit Book Successful!",
+                  text: "You have successfully edit book.",
+                  icon: "success",
+                  confirmButtonText: "OK",
+               });
             })
             .catch((err) => {
                console.log("Error updating book", err);
@@ -94,7 +99,12 @@ const Create = () => {
             },
          })
             .then((response) => {
-               alert("Insert Data Successfully");
+               Swal.fire({
+                  title: "Insert Book Successful!",
+                  text: "You have successfully insert book.",
+                  icon: "success",
+                  confirmButtonText: "OK",
+               });
             })
             .catch((err) => {
                console.log("Error creating book", err);
@@ -111,6 +121,7 @@ const Create = () => {
                <UploadImg onChange={handleImageChange} img={previewImage} />
                <div className="create-input-column">
                   <Label name="Title" />
+                  <Gap height={5} />
                   <Input
                      type="text"
                      name="title"
@@ -120,6 +131,7 @@ const Create = () => {
                   />
                   <Gap height={20} />
                   <Label name="Author" />
+                  <Gap height={5} />
                   <Input
                      type="text"
                      name="author"
@@ -129,6 +141,7 @@ const Create = () => {
                   />
                   <Gap height={20} />
                   <Label name="Publisher" />
+                  <Gap height={5} />
                   <Input
                      type="text"
                      name="publisher"
@@ -140,15 +153,17 @@ const Create = () => {
                </div>
                <div className="create-input-column">
                   <Label name="Date" />
+                  <Gap height={5} />
                   <Input
                      type="text"
                      name="date"
-                     placeholder="1 January 2001"
+                     placeholder="January 1, 2001"
                      value={date}
                      onChange={(e) => setDate(e.target.value)}
                   />
                   <Gap height={20} />
                   <Label name="Stock" />
+                  <Gap height={5} />
                   <Input
                      type="number"
                      name="stock"
@@ -161,6 +176,7 @@ const Create = () => {
             <Gap height={20} />
             <div className="input-description">
                <Label name="Description" />
+               <Gap height={5} />
                <Textarea
                   name="body"
                   value={body}
@@ -169,7 +185,7 @@ const Create = () => {
             </div>
             <Gap height={20} />
             <Button title="Submit" type="submit" onClick={handleSubmit} />
-            <Link title="< Back" onClick={() => navigate("/")} />
+            <Link title="< Back" onClick={() => navigate("/m")} />
          </div>
       </div>
    );

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import { Cards } from "../../components/moleculs";
-import { Button } from "../../components/atoms";
-import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 const Home = () => {
-   const navigate = useNavigate();
    const [books, setBooks] = useState([]);
 
    useEffect(() => {
@@ -28,7 +25,6 @@ const Home = () => {
       <div className="home">
          <div className="content">
             <h1>KUMPULAN BUKU MENARIK</h1>
-            <Button title="Create Book" onClick={() => navigate("/insert")} />
             <div className="content-cards">
                {books.length > 0 ? (
                   books.map((book) => (

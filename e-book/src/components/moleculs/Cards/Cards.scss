@@ -13,12 +13,13 @@
       justify-content: space-between;
       overflow: hidden;
       border-radius: 10px;
-      box-shadow: 0 4px 8px 0 #00000033;
+      box-shadow: 0 4px 8px 0 #b4b2b2;
       transition: 0.3s;
       margin: 20px;
 
       .img {
          height: 25vh;
+         border-bottom: 1px solid #dddddd;
       }
 
       .title {

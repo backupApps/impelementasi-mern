@@ -4,6 +4,7 @@ import "./Detail.scss";
 import { Button, Gap, Link } from "../../components/atoms";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
+import Swal from "sweetalert2";
 
 const Detail = () => {
    const navigate = useNavigate();
@@ -21,22 +22,22 @@ const Detail = () => {
          });
    }, [id]);
 
-   const deleteConfirm = (id) => {
-      console.log("check id: ", id);
-      const confirm_ = window.confirm(
-         "Are you sure you want to delete this book?"
-      );
-      if (confirm_) {
-         Axios.delete(`http://localhost:4000/book/showdetailsbook/${id}`)
-            .then((response) => {
-               alert("Delete Book Successfully");
-               navigate("/");
-            })
-            .catch((err) => {
-               console.log("Error deleting book", err);
-            });
-      } else {
-         console.log("Deletion cancelled");
+   const handleDeleted = async (id) => {
+      const confirm = await Swal.fire({
+         title: "Try Logout",
+         text: "Are you sure you want to delete this book?",
+         icon: "warning",
+         confirmButtonText: "Yes",
+         showCancelButton: true,
+         cancelButtonText: "No",
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+      });
+
+      if (confirm.isConfirmed) {
+         Axios.delete(`http://localhost:4000/book/showdetailsbook/${id}`);
+         Swal.fire("Deleted Successful", "", "success");
+         navigate("/m");
       }
    };
 
@@ -48,7 +49,7 @@ const Detail = () => {
       <div className="detail">
          <div className="detail-content">
             <div>
-               <Link title="< Back" onClick={() => navigate("/")} />
+               <Link title="< Back" onClick={() => navigate("/m")} />
                <img
                   className="detail-image"
                   src={`http://localhost:4000/${book.image}`}
@@ -63,7 +64,7 @@ const Detail = () => {
                         width: "50px",
                         marginRight: "5px",
                      }}
-                     onClick={() => navigate(`/insert/${id}`)}
+                     onClick={() => navigate(`/m/insert/${id}`)}
                   />
                   <Button
                      title="Delete"
@@ -72,7 +73,7 @@ const Detail = () => {
                         color: "white",
                         width: "50px",
                      }}
-                     onClick={() => deleteConfirm(id)}
+                     onClick={() => handleDeleted(id)}
                   />
                </div>
             </div>

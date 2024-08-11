@@ -1,12 +1,29 @@
-.main {
+html,
+body {
+   margin: 0;
+   font-family: Arial, sans-serif;
+}
+
+.main-app {
    box-sizing: border-box;
    display: flex;
-   flex-direction: column;
-   height: 100vh;
 
-   .main-content {
-      margin: auto;
+   .main-sidebar {
+      width: 15%;
+      height: inherit;
+   }
+
+   .main {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
       width: 100%;
-      flex: 1;
+
+      .main-content {
+         margin: auto;
+         width: 100%;
+         flex: 1;
+      }
    }
 }

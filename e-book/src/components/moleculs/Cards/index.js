@@ -20,7 +20,7 @@ export const Cards = (props) => {
             </div>
             <Button
                title="View Detail"
-               onClick={() => navigate(`/showdetailsbook/${_id}`)}
+               onClick={() => navigate(`/m/showdetailsbook/${_id}`)}
             />
          </div>
       </div>

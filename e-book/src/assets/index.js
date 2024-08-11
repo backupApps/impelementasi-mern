@@ -4,6 +4,7 @@ import book from "./img/book.png";
 import read from "./icons/read.gif";
 import bgLogin from "./img/bg-login.jpg";
 import bgRegister from "./img/bg-register.jpg";
+import unprofile from "./img/unprofile.png";
 
 // icon
 import Facebook from "./icons/facebook-svgrepo-com.svg";
@@ -16,6 +17,7 @@ import Discord from "./icons/discord-v2-svgrepo-com.svg";
 export {
    book,
    read,
+   unprofile,
    Book,
    bgLogin,
    bgRegister,
