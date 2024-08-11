@@ -4,11 +4,13 @@ const cors = require("cors");
 const multer = require("multer"); // multipart/form-data (unggah file)
 const path = require("path");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const bookRoutes = require("./src/routes/bookAPI");
+const authRoutes = require("./src/routes/auth");
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 // storage file upload (image)
 const storage = multer.diskStorage({
@@ -57,6 +59,7 @@ app.use((req, res, next) => {
 
 // endpoint
 app.use("/book", bookRoutes);
+app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
    const status = error.errorStatus || 500;
@@ -67,7 +70,7 @@ app.use((error, req, res, next) => {
 
 // connect mongodb
 mongoose
-   .connect("mongodb://localhost:27017/agoengbani")
+   .connect(process.env.MONGO_URI)
    .then(
       app.listen(port, () => {
          console.log(`Server is running on http://localhost:${port}`);

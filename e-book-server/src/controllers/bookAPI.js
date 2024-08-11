@@ -106,10 +106,6 @@ exports.updateBookAPI = (req, res, next) => {
       });
    }
 
-   // const { title, body, author, publisher, date, stock } = req.body;
-   // const image = req.file.path;
-   // const bookId = req.params.id;
-
    const { title, body, author, publisher, date, stock, existingImage } =
       req.body;
    const image = req.file ? req.file.path : existingImage; // gunakan gambar baru jika ada, jika tidak gunakan existingImage
